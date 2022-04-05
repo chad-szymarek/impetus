@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Characters for the game: {{ game_detail.name }}</h1>
+    <div>
+        <a href="{% url 'create_character' %}">Create Character</a>
+    </div>
+
+    {% for character in game_detail.characters.all %}
+        <a href="{% url 'detail_character' character.id %}">{{ character.name }}</a>
+        
+    {% endfor %}
+</div>
+
+{% endblock content %}
