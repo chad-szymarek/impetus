@@ -6,24 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'player/player.css' %}">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <title>DnD-Character Profile</title>
 </head>
 <body>
     <header>
         <nav>
+        <i class="fa-solid fa-dragon background-dragon"></i>
             <ul>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'create_game' %}">Create Game</a></li>
-                    <li><a href="{% url 'list_games' %}">Show Games</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li ><a href="{% url 'create_game' %}" class="nav-link">Create Game</a></li>
+                    <li><a href="{% url 'list_games' %}" class="nav-link">Show Games</a></li>
+                    <li><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                <li><a href="{% url 'signup' %}" class="nav-link">Signup</a></li>
+                <li class="login"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
                 {% endif %}
             </ul>
         </nav>
     </header>
    <main>
+
        {% block content %}
        {% endblock content%}
    </main> 

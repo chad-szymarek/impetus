@@ -5,7 +5,7 @@
         {% for game in game_list %}
             <div class="single-game-container">
                 <li class="games">
-                    <a href="{% url 'show_game' game.id %}">{{ game.name }}</a>
+                    <i class="fa-solid fa-dragon"></i><a href="{% url 'show_game' game.id %}">{{ game.name }}</a>
                 </li>
                 <span class="button"><a href="{% url 'delete_game' game.id %}">Delete Game</a></span>
             </div>

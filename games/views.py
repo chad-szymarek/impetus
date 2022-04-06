@@ -53,7 +53,8 @@ class CharacterCreateView(LoginRequiredMixin, CreateView):
         character = form.save(commit=False)
         character.user = self.request.user
         character.save()
-        return redirect("detai_character", args=[self.object.id])
+        return redirect("detail_character", args=self.object.user_id)
+
 
 class CharacterUpdateView(LoginRequiredMixin, UpdateView):
     model = Character
