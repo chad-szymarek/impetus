@@ -30,8 +30,6 @@ class Character(models.Model):
     name = models.CharField(max_length=100)
     race = models.CharField(choices = RACE_CHOICES, max_length=200, default='Elf')
     playersclass = models.CharField(max_length=50)
-    goals = models.TextField()
-    goalscomplete = models.BooleanField(default=False)
     user = models.ForeignKey(USER_MODEL, related_name="characters", on_delete=models.CASCADE)
     game = models.ForeignKey("Game", related_name="characters", on_delete=models.CASCADE)
 
@@ -46,15 +44,10 @@ class Character(models.Model):
         goal = models.CharField(max_length=100)
         description = models.TextField()
         is_completed = models.BooleanField(default=False)
-        list = models.ForeignKey("CharacterGoalLIst", related_name="goals", on_delete=models.CASCADE)
+        characer = models.ForeignKey("Character", related_name="goals", on_delete=models.CASCADE, null=True)
 
         def __str__(self):
             return self.name
         
 
-    class CharacterGoalList(models.Model):
-        name = models.CharField(max_length=100)
-
-        def __str__(self):
-            return self.name
 

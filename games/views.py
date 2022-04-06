@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -29,7 +30,7 @@ class GameCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('home')
     
 
-class CharacterDetailView(LoginRequiredMixin, DetailView):
+class CharacterDetailView(LoginRequiredMixin, DetailView, FormMixin):
     model = Character
     template_name = "characters/detail_character.html"
     context_object_name = "character_detail"
@@ -37,7 +38,7 @@ class CharacterDetailView(LoginRequiredMixin, DetailView):
 class CharacterCreateView(LoginRequiredMixin, CreateView):
     model = Character
     template_name = "characters/create_character.html"
-    fields = ["name", "summary", "playersclass", "goals", "game"]
+    fields = ["name", "summary", "playersclass", "game"]
 
 
     def form_valid(self, form):
@@ -50,5 +51,5 @@ class CharacterUpdateView(LoginRequiredMixin, UpdateView):
     model = Character
     template_name = "characters/update_character.html"
     context_object_name = "character_update"
-    fields = ["name", "summary", "playersclass", "goals", "game"]
+    fields = ["name", "summary", "playersclass", "game"]
     success_url = reverse_lazy("character_detail")
