@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "goals.apps.GoalsConfig",
     "accounts.apps.AccountsConfig",
     "games.apps.GameConfig",
     "markdownify.apps.MarkdownifyConfig",

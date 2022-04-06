@@ -5,15 +5,23 @@
 <div>
     <h1> {{ character_detail.name }}</h1>
 
-    <div>
-        <p>Summary: {{ character_detail.summary }} </p>
-        <p>Class: {{ character_detail.playersclass }} </p>
-        <p>Goals: {{ character_detail.goals }} </p>
-        <p>User: {{ character_detail.user }} </p>
-    </div>
     {% if character_detail.user == user %}
-        <a href="{% url 'update_character' character_detail.id%}">Edit</a>
+        <a href="{% url 'update_character' character_detail.id%}">Edit Character</a>
     {% endif %}
+
+    <div class="character-detail">
+        <p>Player: {{ character_detail.user }} </p>
+        <p>Class: {{ character_detail.playersclass }} </p>
+        <p>Summary: {{ character_detail.summary }} </p>
+    </div>
+
+    <div class="goals">
+        <h2>Personal Goals</h2>
+        {% for goal in character_detail.goals.all  %}
+            <p>{{ goal.name }}</p>
+        {% endfor %}
+    </div>
+
 </div>
 
 {% endblock content %}

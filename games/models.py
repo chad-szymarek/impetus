@@ -40,14 +40,7 @@ class Character(models.Model):
     def get_absolute_url(self):
         return reverse_lazy("show_games", kwargs={"pk": self.pk})
 
-class CharacterGoal(models.Model):
-    goal = models.CharField(max_length=100)
-    description = models.TextField()
-    is_completed = models.BooleanField(default=False)
-    characer = models.ForeignKey("Character", related_name="goals", on_delete=models.CASCADE, null=True)
 
-    def __str__(self):
-        return self.name
         
 
 

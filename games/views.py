@@ -1,7 +1,6 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -30,7 +29,7 @@ class GameCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('home')
     
 
-class CharacterDetailView(LoginRequiredMixin, DetailView, FormMixin):
+class CharacterDetailView(LoginRequiredMixin, DetailView):
     model = Character
     template_name = "characters/detail_character.html"
     context_object_name = "character_detail"
