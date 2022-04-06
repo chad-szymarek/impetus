@@ -36,5 +36,25 @@ class Character(models.Model):
     game = models.ForeignKey("Game", related_name="characters", on_delete=models.CASCADE)
 
 
+    def __str__(self):
+        return self.name
+
     def get_absolute_url(self):
         return reverse_lazy("show_games", kwargs={"pk": self.pk})
+
+    class CharacterGoal(models.Model):
+        goal = models.CharField(max_length=100)
+        description = models.TextField()
+        is_completed = models.BooleanField(default=False)
+        list = models.ForeignKey("CharacterGoalLIst", related_name="goals", on_delete=models.CASCADE)
+
+        def __str__(self):
+            return self.name
+        
+
+    class CharacterGoalList(models.Model):
+        name = models.CharField(max_length=100)
+
+        def __str__(self):
+            return self.name
+

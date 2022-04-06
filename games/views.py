@@ -39,6 +39,7 @@ class CharacterCreateView(LoginRequiredMixin, CreateView):
     template_name = "characters/create_character.html"
     fields = ["name", "summary", "playersclass", "goals", "game"]
 
+
     def form_valid(self, form):
         character = form.save(commit=False)
         character.user = self.request.user
