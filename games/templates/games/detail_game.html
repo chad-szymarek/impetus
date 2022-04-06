@@ -4,9 +4,7 @@
 
 <div>
     <h1>Characters for the game: {{ game_detail.name }}</h1>
-    {% if user == game_detail.user %}
-        <a href="{% url 'delete_game' game_detail.id %}">Delete Game</a>
-    {% endif %}
+    <a href="{% url 'delete_game' game_detail.id %}">Delete Game</a>
     <div>
         <a href="{% url 'create_character' %}">Create Character</a>
     </div>
