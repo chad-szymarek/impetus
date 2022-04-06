@@ -1,14 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
     background-color: #eee5c6;
 }
+header {
+    background-color:#27273d;
+    height: 4rem;
+    margin-bottom: 20px;
+}
+
+
+header > nav, ul {
+    height: 100%;
+}
+
 header > nav > ul {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+
+    list-style: none;
+}
+
+header > nav > ul > li:nth-child(1) {
+    grid-column-start: 2;
 }
 
 main {
     display: flex;
     justify-content: center;
+    align-content: center;
 }
 
 .games-container {
@@ -27,8 +51,6 @@ main {
     justify-items: center;
     align-items: center;
 }
-
-.button
 
 li {
     list-style: none;
