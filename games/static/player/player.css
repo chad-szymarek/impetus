@@ -11,7 +11,7 @@ header {
     margin-bottom: 20px;
 }
 
-
+/* Header Navigation */
 header > nav, ul {
     height: 100%;
 }
@@ -50,6 +50,13 @@ main {
     align-content: center;
 }
 
+.background-dragon {
+    position: fixed;
+    color: red;
+    height: 4rem;
+}
+
+/* List of games */
 .games-container {
     display: flex;
     flex-direction: column;
@@ -75,17 +82,13 @@ li {
     padding-right: 6px;
 }
 
-.background-dragon {
-    position: fixed;
-    color: red;
-    height: 4rem;
-}
 .games {
     display: inline;
     width: 10rem;
     margin: 10px;
 }
 
+/* Form fields */
 form {
     display: flex;
     flex-direction: column;
@@ -103,4 +106,15 @@ form > button {
 
     color: white;
     background-color:#27273d;
+}
+
+/* characters in the game */
+.characters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr)
+
+}
+
+.single-character {
+    grid-column-start: 1;
 }

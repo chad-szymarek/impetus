@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -8,7 +8,7 @@ from games.models import Game, Character
 
 # Create your views here.
 
-
+# === Game Views ===
 class GameListView(LoginRequiredMixin, ListView):
     model = Game
     template_name = "games/list_games.html"
@@ -26,10 +26,12 @@ class GameCreateView(LoginRequiredMixin, CreateView):
     model = Game
     template_name = "games/create_game.html"
     fields = ["name", "description", "members"]
-    success_url = reverse_lazy('home')
 
-    def get_success_url(self):
-        return reverse_lazy("show_game", args=[self.object.id])
+    def form_valid(self, form):
+        game = form.save(commit=False)
+        game.user = self.request.user
+        game.save()
+        return redirect("show_game", pk=game.id)
 
 class GameDeleteView(LoginRequiredMixin, DeleteView):
     model = Game
@@ -37,7 +39,7 @@ class GameDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("home")
     context_object_name = "game_delete"
     
-
+# === Character Views ===
 class CharacterDetailView(LoginRequiredMixin, DetailView):
     model = Character
     template_name = "characters/detail_character.html"
@@ -53,7 +55,7 @@ class CharacterCreateView(LoginRequiredMixin, CreateView):
         character = form.save(commit=False)
         character.user = self.request.user
         character.save()
-        return redirect("detail_character", args=self.object.user_id)
+        return redirect("detail_character", pk=character.id)
 
 
 class CharacterUpdateView(LoginRequiredMixin, UpdateView):
