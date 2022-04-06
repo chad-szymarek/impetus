@@ -17,6 +17,7 @@
 
     <div class="goals">
         <h2>Personal Goals</h2>
+        <a href="{% url 'create_character_goal'%}">New Goal</a>
         {% for goal in character_detail.goals.all  %}
             <p>{{ goal.name }}</p>
         {% endfor %}

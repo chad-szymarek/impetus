@@ -37,9 +37,6 @@ class Character(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse_lazy("show_games", kwargs={"pk": self.pk})
-
 
         
 

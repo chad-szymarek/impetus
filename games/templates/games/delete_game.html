@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Do you want to delete "{{ game_delete.name }}"?</p>
+        <button type="submit">Delete</button>
+    </form>
+</div>
+{% endblock content %}
+

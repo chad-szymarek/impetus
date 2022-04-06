@@ -4,6 +4,7 @@ from games.views import (
     GameListView,
     GameDetailView,
     GameCreateView,
+    GameDeleteView,
     CharacterCreateView,
     CharacterDetailView,
     CharacterUpdateView
@@ -13,6 +14,7 @@ urlpatterns = [
     path("", GameListView.as_view(), name="list_games"),
     path("<int:pk>/", GameDetailView.as_view(), name="show_game"),
     path("create/", GameCreateView.as_view(), name="create_game"),
+    path("<int:pk>/delete/", GameDeleteView.as_view(), name="delete_game"),
 
     path("character/create/", CharacterCreateView.as_view(), name="create_character"),
     path("character/<int:pk>/", CharacterDetailView.as_view(), name="detail_character"),

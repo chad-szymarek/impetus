@@ -1,0 +1,51 @@
+body {
+    background-color: #eee5c6;
+}
+header > nav > ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.games-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 25%;
+    background-color: white;
+    border: 2px solid #9b8564;
+}
+
+.single-game-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    justify-items: center;
+    align-items: center;
+}
+
+.button
+
+li {
+    list-style: none;
+}
+
+.games {
+    display: inline;
+    width: 10rem;
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > p {
+    display: flex;
+    flex-direction: column;
+}

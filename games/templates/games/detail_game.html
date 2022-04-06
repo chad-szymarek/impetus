@@ -4,6 +4,7 @@
 
 <div>
     <h1>Characters for the game: {{ game_detail.name }}</h1>
+    <a href="{% url 'delete_game' game_detail.id %}">Delete Game</a>
     <div>
         <a href="{% url 'create_character' %}">Create Character</a>
     </div>
