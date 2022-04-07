@@ -64,6 +64,12 @@ main {
     width: 25%;
     background-color: white;
     border: 2px solid #9b8564;
+
+    padding: 10px;
+}
+
+.games-container > h1 {
+    margin-bottom: 10px;
 }
 
 .single-game-container {
@@ -109,12 +115,24 @@ form > button {
 }
 
 /* characters in the game */
+
+.game-character-navigation > a  {
+    text-decoration: none;
+    margin-left: 5px
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .characters {
     display: grid;
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 
 }
 
 .single-character {
     grid-column-start: 1;
+    gap: 10;
 }
+

@@ -26,18 +26,23 @@ class GameCreateView(LoginRequiredMixin, CreateView):
     model = Game
     template_name = "games/create_game.html"
     fields = ["name", "description", "members"]
+    success_url = reverse_lazy("list_games")
 
-    def form_valid(self, form):
-        game = form.save(commit=False)
-        game.user = self.request.user
-        game.save()
-        return redirect("show_game", pk=game.id)
 
 class GameDeleteView(LoginRequiredMixin, DeleteView):
     model = Game
     template_name = "games/delete_game.html"
     success_url = reverse_lazy("home")
     context_object_name = "game_delete"
+
+class GameUpdateView(LoginRequiredMixin, UpdateView):
+    model = Game
+    template_name = "games/update_game.html"
+    context_object_name = "game_update"
+    fields = ["name", "description", "members"]
+
+    def get_success_url(self):
+        return reverse_lazy("show_game", args=[self.object.id])
     
 # === Character Views ===
 class CharacterDetailView(LoginRequiredMixin, DetailView):

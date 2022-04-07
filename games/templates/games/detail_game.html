@@ -2,12 +2,14 @@
 
 {% block content %}
 
-<div>
-    <h1>Characters for the game: {{ game_detail.name }}</h1>
-    <a href="{% url 'delete_game' game_detail.id %}">Delete Game</a>
-    <div>
+<div class="games-container">
+    <h1>Party for {{ game_detail.name }}</h1>
+    <div class="game-character-navigation">
         <a href="{% url 'create_character' %}">Create Character</a>
+        <a href="{% url 'update_game' game_detail.id %}">Update Game</a>
+        <a href="{% url 'delete_game' game_detail.id %}">Delete Game</a>
     </div>
+    <hr>
 
     <div class="characters">
     {% for character in game_detail.characters.all %}
