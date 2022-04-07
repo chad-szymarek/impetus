@@ -11,9 +11,16 @@
 
     <hr>
     <div class="game-character-navigation">
-        <a href="{% url 'create_character' %}">Create Character</a>
-        <a href="{% url 'update_game' game_detail.id %}">Update Game</a>
-        <a href="{% url 'delete_game' game_detail.id %}">Delete Game</a>
+
+        <div>
+            <button><a href="{% url 'create_character' %}">Create Character</a></button>
+        </div>
+        <div>
+            <button><a href="{% url 'update_game' game_detail.id %}">Update Game</a></button>
+        </div>
+        <div>
+            <button><a href="{% url 'delete_game' game_detail.id %}">Delete Game</a></button>
+        </div>
     </div>
     <hr>
     <h2>Adventuring Party</h2>
