@@ -11,6 +11,22 @@ RACE_CHOICES = (
     ('Dwarf', 'Dwarf'),
 )
 
+CLASS_CHOICES = [
+    ('Artificer', 'Artificer'),
+    ('Barbarian', 'Barbarian'),
+    ('Bard', 'Bard'),
+    ('Cleric', 'Cleric'),
+    ('Druid', 'Druid'),
+    ('Fighter', 'Fighter'),
+    ('Monk', 'Monk'),
+    ('Paladin', 'Paladin'),
+    ('Ranger', 'Ranger'),
+    ('Rogue', 'Rogue'),
+    ('Sorcerer', 'Sorcerer'),
+    ('Warlock', 'Warlock'),
+    ('Wizard', 'Wizard'),
+]
+
 
 # Create your models here.
 class Game(models.Model):
@@ -29,7 +45,7 @@ class Character(models.Model):
     summary = models.TextField()
     name = models.CharField(max_length=100)
     race = models.CharField(choices = RACE_CHOICES, max_length=200, default='Elf')
-    playersclass = models.CharField(max_length=50)
+    playersclass = models.CharField(choices=CLASS_CHOICES, max_length=50, default='Artificer')
     user = models.ForeignKey(USER_MODEL, related_name="characters", on_delete=models.CASCADE)
     game = models.ForeignKey("Game", related_name="characters", on_delete=models.CASCADE)
 

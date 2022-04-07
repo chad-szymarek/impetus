@@ -4,6 +4,7 @@
 }
 body {
     background-color: #eee5c6;
+    font-size: 18px;
 }
 header {
     background-color:#27273d;
@@ -11,6 +12,22 @@ header {
     margin-bottom: 20px;
 }
 
+nav {
+    border-bottom: 5px solid #9b8564;
+}
+
+textarea {
+    padding: 10px;
+    line-height: 1.2rem;
+}
+
+input {
+    padding: 10px;
+}
+
+.span-two-columns {
+    grid-column: span 2;
+}
 /* Header Navigation */
 header > nav, ul {
     height: 100%;
@@ -115,7 +132,10 @@ form > button {
 }
 
 /* characters in the game */
-
+.game-character-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 .game-character-navigation > a  {
     text-decoration: none;
     margin-left: 5px
@@ -126,7 +146,7 @@ hr {
 }
 .characters {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 10px;
 
 }
@@ -136,3 +156,21 @@ hr {
     gap: 10;
 }
 
+/* character detail */
+.character-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+
+    margin-bottom: 1rem;
+}
+
+.character-nav {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.goal-list {
+    list-style: disc;
+    list-style-position: inside;
+}

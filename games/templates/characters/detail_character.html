@@ -2,26 +2,33 @@
 
 {% block content %}
 
-<div>
+<div class="games-container">
     <h1> {{ character_detail.name }}</h1>
-
-    {% if character_detail.user == user %}
-        <a href="{% url 'update_character' character_detail.id%}">Edit Character</a>
-    {% endif %}
+    <hr>
+    <div class="character-nav">
+        {% if character_detail.user == user %}
+            <a href="{% url 'update_character' character_detail.id%}">Edit Character</a>
+        {% endif %}
         <a href="{% url 'show_game' character_detail.game_id%}">Back to Game</a>
+    </div>
+    <hr>
 
     <div class="character-detail">
-        <p>Player: {{ character_detail.user }} </p>
-        <p>Class: {{ character_detail.playersclass }} </p>
-        <p>Summary: {{ character_detail.summary }} </p>
+        <p><strong>Player</strong>: {{ character_detail.user }} </p>
+        <p><strong>Class</strong>: {{ character_detail.playersclass }} </p>
+        <p class="span-two-columns"><strong>Summary</strong>: {{ character_detail.summary }} </p>
     </div>
 
     <div class="goals">
         <h2>Personal Goals</h2>
-        <a href="{% url 'create_character_goal'%}">New Goal</a>
-        {% for goal in character_detail.goals.all  %}
-            <p>{{ goal.name }}</p>
-        {% endfor %}
+        <hr>
+            <a href="{% url 'create_character_goal'%}">New Goal</a>
+        <hr>
+        <ul>
+            {% for goal in character_detail.goals.all  %}
+                <li class="goal-list">{{ goal.name }}</li>
+            {% endfor %}
+        </ul>
     </div>
 
 </div>
