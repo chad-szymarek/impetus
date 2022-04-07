@@ -2,18 +2,62 @@
 
 {% block content %}
 
-<div>
+<div class="games-container">
     <h1> {{ character_detail.name }}</h1>
-
-    <div>
-        <p>Summary: {{ character_detail.summary }} </p>
-        <p>Class: {{ character_detail.playersclass }} </p>
-        <p>Goals: {{ character_detail.goals }} </p>
-        <p>User: {{ character_detail.user }} </p>
+    <hr>
+    <div class="character-nav">
+        {% if character_detail.user == user %}
+            <div>
+                <button><a href="{% url 'update_character' character_detail.id%}">Edit Character</a></button>
+            </div>
+        {% endif %}
+        <div>
+            <button><a href="{% url 'show_game' character_detail.game_id%}">Back to Game</a></button>
+        </div>
     </div>
-    {% if character_detail.user == user %}
-        <a href="{% url 'update_character' character_detail.id%}">Edit</a>
-    {% endif %}
+    <hr>
+
+    <div class="character-detail">
+        <p><strong>Player</strong>: {{ character_detail.user }} </p>
+        <p><strong>Class</strong>: {{ character_detail.playersclass }} </p>
+        <p class="span-two-columns"><strong>Summary</strong>: {{ character_detail.summary }} </p>
+    </div>
+
+    <div class="goals">
+        <h2>Personal Goals</h2>
+        <hr>
+            <a href="{% url 'create_character_goal' character_detail.id%}">New Goal</a>
+        <hr>
+        <ul>
+            {% for goal in character_detail.goals.all  %}
+                <div class="goal-grid">
+                    {% if goal.is_completed %}
+                        <li class="goal-list-completed">{{ goal.name }}</li>
+                    {% else %}
+                        <li class="goal-list">{{ goal.name }}</li>
+                    {% endif %}
+
+                    <div><button><a href="{% url 'update_character_goal' goal.id%}">Update</a></button></div>
+                    <div><button><a href="{% url 'delete_goal' goal.id%}">Delete</a></button></div>
+                    
+                    {% if goal.is_completed %}
+                        <p>Done</p>
+                    {% else %}
+                        <form method="POST" action="{% url 'complete_goal' goal.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="is_completed" value="True">
+                            <div>
+                                <button type="submit" class="complete-button">Complete</button>
+                            </div>
+                        </form>
+                    {% endif %}
+
+                    
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+
 </div>
 
 {% endblock content %}

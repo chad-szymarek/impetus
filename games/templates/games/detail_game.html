@@ -2,14 +2,35 @@
 
 {% block content %}
 
-<div>
-    <h1>Characters for the game: {{ game_detail.name }}</h1>
-    <div>
-        <a href="{% url 'create_character' %}">Create Character</a>
+<div class="games-container">
+    <h1>{{ game_detail.name }}</h1>
+
+    <div class="game-description">
+        <p>{{ game_detail.description }}</p>
     </div>
 
+    <hr>
+    <div class="game-character-navigation">
+
+        <div>
+            <button><a href="{% url 'create_character' game_detail.id %}">Create Character</a></button>
+        </div>
+
+        {% if game_detail.user == user %}
+            <div>
+                <button><a href="{% url 'update_game' game_detail.id %}">Update Game</a></button>
+            </div>
+            <div>
+                <button><a href="{% url 'delete_game' game_detail.id %}">Delete Game</a></button>
+            </div>
+        {% endif %}
+    </div>
+    <hr>
+    <h2>Adventuring Party</h2>
+
+    <div class="characters">
     {% for character in game_detail.characters.all %}
-        <a href="{% url 'detail_character' character.id %}">{{ character.name }}</a>
+        <a href="{% url 'detail_character' character.id %}" class="single-character">{{ character.name }} - {{ character.playersclass }}</a>
         
     {% endfor %}
 </div>

@@ -8,6 +8,7 @@ from django.contrib.auth import login
 
 def signup(request):
     form = UserCreationForm(request.POST)
+    form.help_texts = {'username': None, 'password1': None, 'password2': None}
     if request.method == "POST":
         if form.is_valid():
             username = request.POST["username"]

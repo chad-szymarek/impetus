@@ -11,5 +11,6 @@ class GameAdmin(admin.ModelAdmin):
 class CharacterAdmin(admin.ModelAdmin):
     pass
 
+
 admin.site.register(Game, GameAdmin)
 admin.site.register(Character, CharacterAdmin)

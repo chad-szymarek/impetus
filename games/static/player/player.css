@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #eee5c6;
+    font-size: 18px;
+}
+header {
+    background-color:#27273d;
+    height: 4rem;
+    margin-bottom: 20px;
+}
+
+nav {
+    border-bottom: 5px solid #9b8564;
+}
+
+textarea {
+    padding: 10px;
+    line-height: 1.2rem;
+}
+
+input {
+    padding: 10px;
+}
+
+.span-two-columns {
+    grid-column: span 2;
+}
+/* Header Navigation */
+header > nav, ul {
+    height: 100%;
+}
+
+header > nav > ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    height: 100%;
+    color: white;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+header > nav > ul > li:nth-child(1) {
+    grid-column-start: 2;
+}
+
+.login {
+    grid-column-start: 4;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.background-dragon {
+    position: fixed;
+    color: red;
+    height: 4rem;
+}
+
+/* List of games */
+.games-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 50%;
+    background-color: white;
+    border: 2px solid #9b8564;
+
+    padding: 10px;
+}
+
+.games-container > h1 {
+    margin-bottom: 10px;
+}
+
+.single-game-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    justify-items: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+.fa-dragon {
+    padding-right: 6px;
+}
+
+.games {
+    display: inline;
+    width: 10rem;
+    margin: 10px;
+}
+
+/* Form fields */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > p {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+button {
+    background-color:#27273d;
+
+}
+
+button > a {
+    color: white;
+    text-decoration: none;
+
+    padding: 1rem;
+}
+
+form > button {
+    margin-top: 10px;
+
+    color: white;
+    background-color:#27273d;
+}
+
+/* characters in the game */
+.game-character-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.game-character-navigation > a  {
+    text-decoration: none;
+    margin-left: 5px
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.characters {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+
+}
+
+.single-character {
+    grid-column-start: 1;
+    gap: 10;
+}
+
+/* character detail */
+.character-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+
+    margin-bottom: 1rem;
+}
+
+.character-nav {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.goal-list {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+.goal-list-completed {
+    list-style: disc;
+    list-style-position: inside;
+    text-decoration: line-through;
+}
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
+}
+
+.complete-button {
+    color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

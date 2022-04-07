@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "fontawesomefree",
+    "goals.apps.GoalsConfig",
     "accounts.apps.AccountsConfig",
     "games.apps.GameConfig",
     "markdownify.apps.MarkdownifyConfig",
