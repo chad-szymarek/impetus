@@ -18,7 +18,15 @@ class CharacterGoalsCreateView(LoginRequiredMixin, CreateView):
 class CharacterGoalsUpdateView(LoginRequiredMixin, UpdateView):
     model = CharacterGoal
     template_name = "goals/update_character_goal.html"
-    fields = ["name", "description", "character"]
+    fields = ["name", "description", "character", "is_completed"]
+
+    def get_success_url(self):
+        return reverse_lazy("detail_character", args=[self.object.character_id])
+
+class CharacterGoalsCompletedUpdateView(LoginRequiredMixin, UpdateView):
+    model = CharacterGoal
+    template_name = "goals/update_goal_complete.html"
+    fields = ["is_completed"]
 
     def get_success_url(self):
         return reverse_lazy("detail_character", args=[self.object.character_id])

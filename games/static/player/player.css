@@ -78,7 +78,7 @@ main {
     display: flex;
     flex-direction: column;
     height: auto;
-    width: 25%;
+    width: 30%;
     background-color: white;
     border: 2px solid #9b8564;
 
@@ -122,6 +122,18 @@ form > p {
     flex-direction: column;
     font-size: 1rem;
     margin-top: 10px;
+}
+
+button {
+    background-color:#27273d;
+
+}
+
+button > a {
+    color: white;
+    text-decoration: none;
+
+    padding: 1rem;
 }
 
 form > button {
@@ -175,7 +187,20 @@ hr {
     list-style-position: inside;
 }
 
+.goal-list-completed {
+    list-style: disc;
+    list-style-position: inside;
+    text-decoration: line-through;
+}
+
 .goal-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+
+.complete-button {
+    color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

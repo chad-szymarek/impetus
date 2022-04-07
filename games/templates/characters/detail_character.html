@@ -7,9 +7,13 @@
     <hr>
     <div class="character-nav">
         {% if character_detail.user == user %}
-            <a href="{% url 'update_character' character_detail.id%}">Edit Character</a>
+            <div>
+                <button><a href="{% url 'update_character' character_detail.id%}">Edit Character</a></button>
+            </div>
         {% endif %}
-        <a href="{% url 'show_game' character_detail.game_id%}">Back to Game</a>
+        <div>
+            <button><a href="{% url 'show_game' character_detail.game_id%}">Back to Game</a></button>
+        </div>
     </div>
     <hr>
 
@@ -27,8 +31,27 @@
         <ul>
             {% for goal in character_detail.goals.all  %}
                 <div class="goal-grid">
-                    <li class="goal-list">{{ goal.name }}</li>
-                    <a href="{% url 'update_character_goal' goal.id%}">Update</a>
+                    {% if goal.is_completed %}
+                        <li class="goal-list-completed">{{ goal.name }}</li>
+                    {% else %}
+                        <li class="goal-list">{{ goal.name }}</li>
+                    {% endif %}
+
+                    <div><button><a href="{% url 'update_character_goal' goal.id%}">Update</a></button></div>
+                    
+                    {% if goal.is_completed %}
+                        <p>Done</p>
+                    {% else %}
+                        <form method="POST" action="{% url 'complete_goal' goal.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="is_completed" value="True">
+                            <div>
+                                <button type="submit" class="complete-button">Complete</button>
+                            </div>
+                        </form>
+                    {% endif %}
+
+                    
                 </div>
             {% endfor %}
         </ul>
