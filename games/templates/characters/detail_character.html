@@ -8,6 +8,7 @@
     {% if character_detail.user == user %}
         <a href="{% url 'update_character' character_detail.id%}">Edit Character</a>
     {% endif %}
+        <a href="{% url 'show_game' character_detail.game_id%}">Back to Game</a>
 
     <div class="character-detail">
         <p>Player: {{ character_detail.user }} </p>
