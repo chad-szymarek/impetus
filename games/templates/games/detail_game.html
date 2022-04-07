@@ -13,7 +13,7 @@
     <div class="game-character-navigation">
 
         <div>
-            <button><a href="{% url 'create_character' %}">Create Character</a></button>
+            <button><a href="{% url 'create_character' game_detail.id %}">Create Character</a></button>
         </div>
 
         {% if game_detail.user == user %}

@@ -7,7 +7,9 @@
                 <li class="games">
                     <i class="fa-solid fa-dragon"></i><a href="{% url 'show_game' game.id %}">{{ game.name }}</a>
                 </li>
-                <span class="button"><a href="{% url 'delete_game' game.id %}">Delete Game</a></span>
+                {% if game.user == user %}
+                    <span class="button"><a href="{% url 'delete_game' game.id %}">Delete Game</a></span>
+                {% endif %}
             </div>
         {% endfor %}
     </div>

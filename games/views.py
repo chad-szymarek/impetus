@@ -28,10 +28,11 @@ class GameCreateView(LoginRequiredMixin, CreateView):
     fields = ["name", "description", "members"]
 
     def form_valid(self, form):
-        form = form.save(commit=False)
-        form.user = self.request.user
-        form.save()
-        return redirect("show_game", pk=form.id)
+        game = form.save(commit=False)
+        game.user = self.request.user
+        game.save()
+        form.save_m2m()
+        return redirect("show_game", pk=game.id)
 
 
 class GameDeleteView(LoginRequiredMixin, DeleteView):
@@ -58,13 +59,17 @@ class CharacterDetailView(LoginRequiredMixin, DetailView):
 class CharacterCreateView(LoginRequiredMixin, CreateView):
     model = Character
     template_name = "characters/create_character.html"
-    fields = ["name", "summary", "playersclass", "game"]
+    fields = ["name", "summary", "playersclass"]
 
 
     def form_valid(self, form):
         character = form.save(commit=False)
+        game_id = self.kwargs["game_id"]
+        game = Game.objects.get(id=game_id)
         character.user = self.request.user
+        character.game = game
         character.save()
+        form.save_m2m()
         return redirect("detail_character", pk=character.id)
 
 
