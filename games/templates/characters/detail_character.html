@@ -26,7 +26,7 @@
     <div class="goals">
         <h2>Personal Goals</h2>
         <hr>
-            <a href="{% url 'create_character_goal'%}">New Goal</a>
+            <a href="{% url 'create_character_goal' character_detail.id%}">New Goal</a>
         <hr>
         <ul>
             {% for goal in character_detail.goals.all  %}
