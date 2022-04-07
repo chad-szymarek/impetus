@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
-from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import LocalePrefixPattern, reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from goals.models import CharacterGoal
@@ -35,6 +35,14 @@ class CharacterGoalsCompletedUpdateView(LoginRequiredMixin, UpdateView):
     model = CharacterGoal
     template_name = "goals/update_goal_complete.html"
     fields = ["is_completed"]
+
+    def get_success_url(self):
+        return reverse_lazy("detail_character", args=[self.object.character_id])
+
+class CharacterGoalsDeleteView(LoginRequiredMixin, DeleteView):
+    model = CharacterGoal
+    template_name = "goals/delete_character_goal.html"
+    context_object_name = "goal_delete"
 
     def get_success_url(self):
         return reverse_lazy("detail_character", args=[self.object.character_id])

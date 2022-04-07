@@ -77,7 +77,7 @@ class CharacterUpdateView(LoginRequiredMixin, UpdateView):
     model = Character
     template_name = "characters/update_character.html"
     context_object_name = "character_update"
-    fields = ["name", "summary", "playersclass", "game"]
+    fields = ["name", "summary", "playersclass"]
 
     def get_success_url(self):
         return reverse_lazy("detail_character", args=[self.object.id])

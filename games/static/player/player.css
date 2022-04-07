@@ -78,7 +78,7 @@ main {
     display: flex;
     flex-direction: column;
     height: auto;
-    width: 30%;
+    width: 50%;
     background-color: white;
     border: 2px solid #9b8564;
 
@@ -179,7 +179,7 @@ hr {
 
 .character-nav {
     display:grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .goal-list {
@@ -195,8 +195,8 @@ hr {
 
 .goal-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
 }
 
 .complete-button {
