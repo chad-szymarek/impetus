@@ -14,3 +14,11 @@ class CharacterGoalsCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy("detail_character", args=[self.object.character_id])
+
+class CharacterGoalsUpdateView(LoginRequiredMixin, UpdateView):
+    model = CharacterGoal
+    template_name = "goals/update_character_goal.html"
+    fields = ["name", "description", "character"]
+
+    def get_success_url(self):
+        return reverse_lazy("detail_character", args=[self.object.character_id])

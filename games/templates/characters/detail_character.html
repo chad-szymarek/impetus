@@ -26,7 +26,10 @@
         <hr>
         <ul>
             {% for goal in character_detail.goals.all  %}
-                <li class="goal-list">{{ goal.name }}</li>
+                <div class="goal-grid">
+                    <li class="goal-list">{{ goal.name }}</li>
+                    <a href="{% url 'update_character_goal' goal.id%}">Update</a>
+                </div>
             {% endfor %}
         </ul>
     </div>

@@ -1,6 +1,7 @@
 from django.urls import path
 
-from goals.views import CharacterGoalsCreateView
+from goals.views import CharacterGoalsCreateView, CharacterGoalsUpdateView
 urlpatterns = [
-    path("create/", CharacterGoalsCreateView.as_view(), name="create_character_goal")
+    path("create/", CharacterGoalsCreateView.as_view(), name="create_character_goal"),
+    path("<int:pk>/update/", CharacterGoalsUpdateView.as_view(), name="update_character_goal"),
 ]

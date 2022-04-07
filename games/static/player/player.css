@@ -174,3 +174,8 @@ hr {
     list-style: disc;
     list-style-position: inside;
 }
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
