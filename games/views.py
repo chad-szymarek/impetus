@@ -26,7 +26,12 @@ class GameCreateView(LoginRequiredMixin, CreateView):
     model = Game
     template_name = "games/create_game.html"
     fields = ["name", "description", "members"]
-    success_url = reverse_lazy("list_games")
+
+    def form_valid(self, form):
+        form = form.save(commit=False)
+        form.user = self.request.user
+        form.save()
+        return redirect("show_game", pk=form.id)
 
 
 class GameDeleteView(LoginRequiredMixin, DeleteView):

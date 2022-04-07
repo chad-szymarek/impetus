@@ -33,6 +33,7 @@ class Game(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     members = models.ManyToManyField(USER_MODEL, related_name="games")
+    user = models.ForeignKey(USER_MODEL, related_name="created_games", on_delete=models.CASCADE)
     image = models.URLField('Discord link image')
 
     def __str__(self):
