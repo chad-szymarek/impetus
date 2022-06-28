@@ -6,4 +6,4 @@ The purpose of the application is to provide a simple interface for keeping trac
 
 **Back-end**: Python, Django  
 **Front-end**: HTML, CSS  
-<img src="https://live.staticflickr.com/65535/52180509881_4b6ee6f4d7_z.jpg" />
+<img src="https://live.staticflickr.com/65535/52180843589_99228fca54_z.jpg" />
