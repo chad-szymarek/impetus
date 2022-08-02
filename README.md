@@ -4,7 +4,7 @@ A minimalistic website to help keep track of the more narrative aspects of a tab
 
 # Technologies Used
 
-**Setup and Configuration**: Git, Pypi
+**Setup and Configuration**: Git, Pypi  
 **Back-end Development**: Python, Django  
 **Front-end Development**: HTML, CSS
 
