@@ -1,15 +1,36 @@
 # Tabletop Character Profiles
 
-The purpose of the application is to provide a simple interface for keeping track of characters and their short-term goals in a tabletop rpg.
+A minimalistic website to help keep track of the more narrative aspects of a tabletop rpg character.
 
-# Technologies
+# Technologies Used
 
-**Back-end**: Python, Django  
-**Front-end**: HTML, CSS
+**Setup and Configuration**: Git, Pypi
+**Back-end Development**: Python, Django  
+**Front-end Development**: HTML, CSS
 
 # Building and running the project
 
-1. git clone the project repo
-2. Once the project is on your machine, start up a virtual environment with `python3 -m venv .venv`
-3. Then run `pip install -r requirements.txt` to install requirements
-4. Finally run `python manage.py runserver` to bring the server up to run locally
+In your terminal, clone down the repository
+`git clone <clone url here>`
+
+Once the project is cloned down, cd into the project directory that you just made, and activate a python virtual environment.
+`python -m venv .venv`
+`source .venv/bin/activate`
+
+Update pip once you have activated the virtual environment.
+`python -m pip install --upgrade pip`
+
+Install the requirements for the project.
+`pip install -r requirements.txt`
+
+Run the Django migrations.
+`python manage.py migrate`
+
+Run the server.
+`python manage.py runserver`
+
+Create a super user if you want to access the Django admin page for the site.
+`python manage.py createsuperuser`
+
+Access the site through the browser.
+`http://localhost:8000`
