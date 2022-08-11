@@ -1,6 +1,6 @@
-# Tabletop Character Profiles
+# Impetus
 
-A minimalistic website to help keep track of the more narrative aspects of a tabletop rpg character.
+A minimalistic website to help keep track of the more narrative aspects of a tabletop rpg character, such as goals the character wants to complete during their adventure.
 
 # Technologies Used
 
